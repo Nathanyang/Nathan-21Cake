@@ -1,8 +1,11 @@
 /web/bundles/
 /app/bootstrap.php.cache
+/app/bootstrap.php.cache.bak
 /app/cache/*
 /app/config/parameters.yml
 /app/config/parameters.yml.disk
+/app/config/parameters.yml.bak
+/app/config/parameters.yml.disk.bak
 /app/logs/*
 !app/cache/.gitkeep
 !app/logs/.gitkeep
