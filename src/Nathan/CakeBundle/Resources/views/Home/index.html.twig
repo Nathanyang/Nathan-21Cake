@@ -1,16 +1,5 @@
 {% extends "NathanCakeBundle::layout.html.twig" %}
-{% block MyJs %}
-    {% javascripts '@NathanCakeBundle/Resources/public/js/index/*.coffee'
-    filter="coffee,?uglifyjs2" %}
-        <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-{% endblock %}
 
-{% block MyCss %}
-    {% stylesheets '@NathanCakeBundle/Resources/public/css/index/*' %}
-        <link rel="stylesheet" href="{{ asset_url }}" />
-    {% endstylesheets %}
-{% endblock %}
 {% block mainContent %}
     <div class="jumbotron">
         <div class="container">
