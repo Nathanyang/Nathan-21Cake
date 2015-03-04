@@ -1,7 +1,7 @@
 {% extends "NathanCakeBundle::layout.html.twig" %}
 {% block MyJs %}
     {% javascripts '@NathanCakeBundle/Resources/public/js/index/*.coffee'
-    filter="coffee" %}
+    filter="coffee,uglifyjs2" %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
 {% endblock %}
