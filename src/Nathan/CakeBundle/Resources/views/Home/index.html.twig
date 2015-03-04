@@ -1,0 +1,27 @@
+{% extends "NathanCakeBundle::layout.html.twig" %}
+{% block MyJs %}
+    {% javascripts '@NathanCakeBundle/Resources/public/js/index/*.coffee'
+    filter="coffee" %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block MyCss %}
+    {% stylesheets '@NathanCakeBundle/Resources/public/css/index/*' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+{% block mainContent %}
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Marking Stuff!</h1>
+
+            <p class="lead">{{ content | upper | reverse | lower | reverse }}{{ injection }}</p>
+
+            <p><a class="btn btn-lg btn-success" href="###">get start today!</a></p>
+        </div>
+    </div>
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}
+{% endblock %}
