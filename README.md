@@ -47,7 +47,44 @@ Create Bundle
         npm config set prefix  D:\nodeJsProgramFiles\nodejs\node_global 主要是这句配置起作用了
 
 
+        配置：
+        .twig 文件中
+        {% javascripts '@NathanCakeBundle/Resources/public/js/index/*.coffee'
+            filter="coffee" %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        配置文件(config.yml)：
+            assetic:
+                filters:
+                    coffee:
+                        bin: /usr/local/bin/coffee
+                        node: /usr/local/bin/node
+    6. uglifyjs2 Js 压缩工具
+        .twig 文件中
+        {% javascripts '@NathanCakeBundle/Resources/public/js/index/*.coffee'
+            filter="uglifyjs2" %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        配置文件(config.yml)：
+            assetic:
+                filters:
+                    uglifyjs2:
+                        bin: /usr/local/bin/uglifyjs
+                        node: /usr/local/bin/node
 
+    这里可以把node配置在外层
+        node: /usr/local/bin/node
+        filters:
+            coffee:
+                bin: /usr/local/bin/coffee
+            uglifyjs2:
+                bin: /usr/local/bin/uglifyjs
+
+    设置压缩只在开发环境中起效：.twig文件中filter前添加一个问号
+        {% javascripts '@NathanCakeBundle/Resources/public/js/index/*.coffee'
+            filter="?uglifyjs2" %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
 
 
 
