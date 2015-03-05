@@ -14,7 +14,7 @@ use Doctrine\ORM\Mapping\JoinColumn;
 
 /**
  * Class Profile
- * @ORM\Entity(repositoryClass="ProfileRepository")
+ * @ORM\Entity(repositoryClass="Nathan\CakeBundle\Repository\ProfileRepository")
  * @ORM\Table(name="profile")
  */
 class Profile {
@@ -24,10 +24,11 @@ class Profile {
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
     /**
      * @ORM\Column(type="integer")
      */
-    protected $User_id;
+    protected $mobile_number;
     /**
      * @OneToOne(targetEntity="User", inversedBy="profile")
      * @JoinColumn(name="user_id", referencedColumnName="id")

@@ -8,14 +8,14 @@
 
 namespace Nathan\CakeBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\OneToOne;
-use Doctrine\ORM\Mapping\JoinColumn;
-
+use Doctrine\ORM\Mapping\ManyToMany;
 /**
  * Class User
  * @package Nathan\CakeBundle\Entity
- * @ORM\Entity(repositoryClass="UserRepository")
+ * @ORM\Entity(repositoryClass="Nathan\CakeBundle\Repository\UserRepository")
  * @ORM\Table(name="user")
  */
 class User {
@@ -26,14 +26,13 @@ class User {
      */
     protected $id;
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=45)
      */
     protected $username;
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=45)
      */
     protected $password;
-
     /**
      * @ORM\Column(type="integer")
      */
@@ -42,4 +41,12 @@ class User {
      * @OneToOne(targetEntity="Profile", mappedBy="user")
      */
     private $profile;
+    /**
+     * @ManyToMany(targetEntity="Book", mappedBy="users")
+     */
+    private $books;
+
+    public function __construct(){
+        $this->books = new ArrayCollection();
+    }
 }
